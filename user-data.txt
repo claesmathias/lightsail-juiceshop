@@ -39,6 +39,15 @@ DOMAINS='-.example.com,www.example.com'
 INTERVAL='5m'
 EOF
 
+# set permissions
+sudo chown -R centos:centos /home/centos/lightsail-juiceshop/
+
+# set selinux permissions
+sudo chcon -Rt svirt_sandbox_file_t /home/centos
+
 # start docker containers
 cd /home/centos/lightsail-juiceshop/
 /usr/local/bin/docker-compose up -d
+
+# reset ssh permissions
+restorecon -FRvv ~/.ssh
