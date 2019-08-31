@@ -32,8 +32,6 @@ services:
     depends_on:
       - "no-ip"
       - "juice-shop"
-    extra_hosts:
-      - "plex:${HOST_IP}"
     networks:
       - app_net
     healthcheck:
