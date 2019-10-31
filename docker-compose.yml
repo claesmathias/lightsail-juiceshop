@@ -65,6 +65,8 @@ services:
   juice-shop:
     image: bkimminich/juice-shop
     restart: always
+    environment:
+    - NODE_ENV=ctf
     networks:
       - app_net
 
